@@ -1,3 +1,21 @@
-{% extends "App/base.html" %} {% block dynamicContent %}
-<h4>Hola mundo</h4>
+{% extends "App/base.html" %} 
+{% load static %}
+{% block dynamicContent %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="text-center">
+                <h1>About Me</h1>
+                <img src= {% static 'assets/img/foto_caro.jpg' %} alt="foto" class="img-fluid rounded-circle mt-3" style="width: 200px;">
+            </div>
+            <p class="mt-4">¡Hola! Soy Carolina Ponce, y aquí te cuento un poco sobre mí. Soy un [tu ocupación] apasionado por [tus intereses o habilidades]. Me encanta [algo que te apasiona], y siempre estoy dispuesto a aprender algo nuevo. En mi tiempo libre, disfruto de [tus pasatiempos] y [algo más que te guste].</p>
+            <p>Si quieres conocerme mejor o hablar sobre [tema de interés], no dudes en contactarme. Estoy disponible en [tu dirección de correo electrónico] y [tus redes sociales].</p>
+        </div>
+    </div>
+</div>
 {% endblock %}
+
+
+
+
+
