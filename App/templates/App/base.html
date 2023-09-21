@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Proyecto Blog </title>
+        <title>{% block dynamicTitleHead %}{% endblock %} - Mi Blog </title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -14,47 +14,42 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'App/css/bootstrap.css'  %}" rel="stylesheet" />
         <link href="{% static 'App/css/styles.css'  %}" rel="stylesheet" />
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <!-- Navigation-->
         <nav class="navbar navbar-dark bg-dark static-top">
             <div class="container">
-                <a class="navbar-brand" href="/App/about/">About</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/about">Acerca de mi</a>
+                <a class="btn btn-primary" href="/accounts/login">Login</a>
+                <a class="btn btn-primary" href="/accounts/register">Registrarse</a>
             </div>
         </nav>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container position-relative">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center align-items-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Proyecto Blog</h1>
-                            
+                            <h1 class="mb-5">{% block dynamicTitle %}{% endblock %}</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        {% block dynamicContent %}
-        {% endblock %}
+        <main class="container py-5">
+            {% block dynamicContent %}
+            {% endblock %}
+        </main>
         <!-- Footer-->
-        <footer class="footer bg-dark">
+        <footer class="footer bg-dark mt-auto">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2 text-dark">
-                            <li class="list-inline-item text-decoration-none"><a href="#!">About</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Proyecto Blog Carolina Ponce - 2023. All Rights Reserved.</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
@@ -65,7 +60,7 @@
                                 <a href="#!"><i class="bi-twitter fs-3"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                                <a href="#!"><i class="bi-github fs-3"></i></a>
                             </li>
                         </ul>
                     </div>
