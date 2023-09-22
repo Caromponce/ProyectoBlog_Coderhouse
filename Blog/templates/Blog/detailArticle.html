@@ -1,0 +1,30 @@
+{% extends "App/base.html" %} 
+{% load static %}
+{% block dynamicTitleHead %}
+Blog
+{% endblock %}
+{% block dynamicTitle %}
+<h1>Detalle artículo</h1>
+{% endblock %}
+
+{% block dynamicContent %}
+<div class="container">
+    {% if article %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <img src="{{article.imagen.url}}" class="card-img-top" alt="Imagen del Post">
+                                <h2 class="card-title">{{article.titulo}}</h2>
+                                <h5 class="card-subtitle mb-2 text-muted">{{article.subtitulo}}</h5>
+                                <p class="card-text">{{article.contenido|striptags|safe}}</p>
+                                <p class="card-text"><small class="text-muted">Autor: {{article.autor}} - Fecha: {{article.fecha_creacion}}</small></p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

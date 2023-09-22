@@ -16,6 +16,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'App/css/bootstrap.css'  %}" rel="stylesheet" />
         <link href="{% static 'App/css/styles.css'  %}" rel="stylesheet" />
+        {{ form.media.js }}
+        {{ form.media.css }}
     </head>
     <body class="d-flex flex-column min-vh-100">
         <!-- Navigation-->
@@ -23,6 +25,7 @@
             <div class="container">
                 <a class="navbar-brand" href="/">Home</a>
                 <a class="navbar-brand" href="/about">Acerca de mi</a>
+                <a class="navbar-brand" href="/blog">Blog</a>
                 <a class="btn btn-primary" href="/accounts/login">Login</a>
                 <a class="btn btn-primary" href="/accounts/register">Registrarse</a>
             </div>
@@ -53,14 +56,8 @@
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
                             <li class="list-inline-item">
-                                <a href="#!"><i class="bi-github fs-3"></i></a>
+                                <a href="https://github.com/Caromponce"><i class="bi-github fs-3"></i></a>
                             </li>
                         </ul>
                     </div>

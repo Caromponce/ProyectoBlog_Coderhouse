@@ -1,0 +1,18 @@
+{% extends "App/base.html" %} 
+{% load static %}
+{% block dynamicTitleHead %}
+Blog
+{% endblock %}
+{% block dynamicTitle %}
+<h1>Creá un nuevo artículo</h1>
+{% endblock %}
+
+{% block dynamicContent %}
+<div style="background-color:  #f4f4f4; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); max-width: 800px; margin: 0 auto;">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar" style="background-color: #687c96; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">
+    </form>
+</div>
+{% endblock %}
