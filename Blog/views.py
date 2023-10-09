@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, UpdateView
 from django.urls import reverse_lazy
 from .models import Article
 
@@ -20,3 +21,9 @@ class CreateArticle(CreateView):
 class ReadArticle(DetailView):
     model         = Article
     template_name = "blog/detailArticle.html"
+    
+class EditArticle(UpdateView):
+    model         = Article
+    template_name = "blog/editArticle.html"
+    success_url = reverse_lazy('blog')
+    fields        = ['titulo', 'subtitulo', 'contenido', 'imagen']

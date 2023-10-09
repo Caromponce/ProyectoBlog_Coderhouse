@@ -20,6 +20,7 @@ Blog
                                 <h5 class="card-subtitle mb-2 text-muted">{{article.subtitulo}}</h5>
                                 <p class="card-text">{{article.contenido|striptags|safe}}</p>
                                 <p class="card-text"><small class="text-muted">Autor: {{article.autor}} - Fecha: {{article.fecha_creacion}}</small></p>
+                                <a class="btn btn-outline-success ms-1" href="/blog/editArticle/{{article.id}}">Editar Artículo</a>
                             </div>
                         </div>
                 </div>

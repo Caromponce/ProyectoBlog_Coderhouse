@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+*.jpg
+*.png
+!foto_caro.jpg

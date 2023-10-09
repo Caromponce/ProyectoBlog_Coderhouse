@@ -25,9 +25,15 @@
             <div class="container">
                 <a class="navbar-brand" href="/">Home</a>
                 <a class="navbar-brand" href="/about">Acerca de mi</a>
-                <a class="navbar-brand" href="/blog">Blog</a>
-                <a class="btn btn-primary" href="/accounts/login">Login</a>
-                <a class="btn btn-primary" href="/accounts/register">Registrarse</a>
+                {% if not request.user.username %}
+                    <a class="btn btn-primary" href="/accounts/login">Login</a>
+                    <a class="btn btn-primary" href="/accounts/register">Registrarse</a>
+                {% endif %}
+                {% if request.user.username %}
+                    <a class="navbar-brand" href="/blog">Blog</a>
+                    <a class="btn btn-primary" href="/accounts/logout">Logout</a>
+                    <a class="btn btn-primary" href="/accounts/profile"><i class="bi bi-person"></i> Perfil</a>
+                {% endif %}
             </div>
         </nav>
         <!-- Masthead-->

@@ -1,0 +1,39 @@
+{% extends "App/base.html" %} 
+{% load static %}
+{% block dynamicTitleHead %}
+Profile
+{% endblock %}
+{% block dynamicTitle %}
+<h1>Mi Perfil</h1>
+{% endblock %}
+{% block dynamicContent %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card" style="background-color:  #f4f4f4; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); max-width: 400px; margin: 0 auto;">
+                    <div class="card-body">
+                        <h5 class="card-title">Información del Usuario</h5>
+                        <p class="fw-bold">Username: <span class="fw-normal">{{ request.user.username }}</span></p>
+                        <p class="fw-bold">Email: <span class="fw-normal">{{ request.user.email }}</span></p>
+                        <p class="fw-bold">Nombre: <span class="fw-normal">{{ request.user.first_name }}</span></p>
+                        <p class="fw-bold">Apellido: <span class="fw-normal">{{ request.user.last_name }}</span></p>
+                        <p class="fw-bold">Link: 
+                            <span class="fw-normal">
+                                {% if request.user.userextension.link %}
+                                    <a href="{{ request.user.userextension.link }}">
+                                        {{ request.user.userextension.link }}
+                                    </a>
+                                {% endif %}
+                            </span>
+                        </p>
+                        <a href="/accounts/editProfile" class="btn btn-success" role="button">Editar Perfil</a>
+                        <a href="/accounts/changePassword" class="btn btn-danger" role="button">Cambiar contraseña</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}
